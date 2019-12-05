@@ -56,6 +56,7 @@ return [
 
     'v1/index/siteConfig'=>'web/index/site',
     'v1/index/page'=>'web/index/column',
+    'v1/index/view'=>'web/index/view',
     'v1/index/newsCate'=>'web/index/newsCate',
     'v1/index/newsList'=>'web/index/newsList',
     'v1/index/serviceCate'=>'web/index/serviceCate',

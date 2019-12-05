@@ -33,12 +33,14 @@ class Index extends Controller
     }
 
     //内容页
-    public function view($id){
-        if(intval($id)){
-            $this->assign('article',getA($id));
-            return $this->fetch();
+    public function view(){
+        $data = request()->post();
+        if(empty($data['id'])){
+            return $this->error('id不能为空');
         }
-        abort(404,'页面不存在');
+        $model = new Article();
+        $res = $model->getOneArticle($data['id']);
+        return $this->result($res,1,'请求成功','json');
     }
 
     //栏目页
