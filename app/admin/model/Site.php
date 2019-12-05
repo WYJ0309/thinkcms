@@ -4,8 +4,12 @@ use think\Model;
 
 class Site extends Model{
 
-  public function getSite(){
-      return $this->find();
+  public function getSite($where=null){
+      if(empty($where)){
+          return $this->where('id',1)->find();
+      }else{
+          return $this->where('id',2)->find();
+      }
   }
 
   //保存site数据

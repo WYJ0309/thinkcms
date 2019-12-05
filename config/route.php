@@ -54,9 +54,13 @@ return [
     ''=>'web/webs/index',
     'v1/index/slides'=>'web/index/get_slides',
 
-
+    'v1/index/siteConfig'=>'web/index/site',
+    'v1/index/page'=>'web/index/column',
     'v1/index/newsCate'=>'web/index/newsCate',
     'v1/index/newsList'=>'web/index/newsList',
+    'v1/index/serviceCate'=>'web/index/serviceCate',
+    'v1/index/serviceList'=>'web/index/serviceList',
+    'v1/index/request'=>'web/index/fetchRequest',
 
     //api router
     '[api]'=>[

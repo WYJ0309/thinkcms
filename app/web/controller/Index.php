@@ -2,6 +2,9 @@
 namespace app\web\controller;
 use app\admin\model\Article;
 use app\admin\model\Category;
+use app\admin\model\Column;
+use app\admin\model\Consult;
+use app\admin\model\Site;
 use app\admin\model\Slider;
 use \think\Controller;
 
@@ -20,17 +23,13 @@ class Index extends Controller
         return $this->result($imgArr,1,'请求成功','json');
     }
 
-    //列表
-    public function listing($id)
-    {
-        if(intval($id)){
-            //分页
-            $this->assign('list',getPA($id));
-            //分类名
-            $this->assign('cate',getCName($id));
-            return $this->fetch('list');
-        }
-        abort(404,'页面不存在');
+    //站点各项配置
+    public function site(){
+        $data = request()->post();
+        $is_zh = empty($data['is_zh'])?0:$data['is_zh'];//1中文 2英文
+        $model = new Site();
+        $res = $model->getSite($is_zh);
+        return $this->result($res,1,'请求成功','json');
     }
 
     //内容页
@@ -43,14 +42,14 @@ class Index extends Controller
     }
 
     //栏目页
-    public function column($name){
-
-        $column=getColumn($name);
-        if($column){
-            $this->assign('column',$column);
-            return $this->fetch();
+    public function column(){
+        $data = request()->port();
+        if(empty($data['alias_name'])){
+            return $this->error('参数不能为空');
         }
-        abort(404,'页面不存在');
+        $model = new Column();
+        $res = $model->getLine($data['alias_name']);
+        return $this->result($res,1,'请求成功','json');
     }
 
     //新闻分类列表
@@ -76,6 +75,40 @@ class Index extends Controller
             $where['is_en'] = empty($is_zh)?1:2;//是否英文 1中文 2英文
         }else{
             $where['type'] = 1;//1文章分类 2服务分类
+            $where['is_en'] = empty($is_zh)?1:2;//是否英文 1中文 2英文
+        }
+        if(!empty($data['cate_id'])){
+            $where['pid'] = $data['cate_id'];
+        }
+        $model = new Article();
+        //是否英文 0中文 1英文
+        $res = $model->getNewsList($where);
+        return $this->result($res,1,'请求成功','json');
+    }
+
+    //服务分类列表
+    public function serviceCate(){
+        $data = request()->post();
+        $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
+        $is_zh = ($is_zh == 1)?0:1;
+        $model = new Category();
+        //是否英文 0中文 1英文
+        $res = $model->getTree(['type'=>2,'is_zh'=>$is_zh]);
+        return $this->result($res,1,'请求成功','json');
+    }
+    //服务列表
+    public function serviceList(){
+        $data = request()->post();
+        $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
+        $is_zh = ($is_zh == 1)?0:1;
+        $is_index = empty($data['is_index'])?0:1;//是否首页推荐
+        $where = [];
+        if(!empty($is_index)){
+            $where['top'] = 1;
+            $where['type'] = 2;//1文章分类 2服务分类
+            $where['is_en'] = empty($is_zh)?1:2;//是否英文 1中文 2英文
+        }else{
+            $where['type'] = 2;//1文章分类 2服务分类
             $where['is_en'] = 1;//是否英文 1中文 2英文
         }
         $model = new Article();
@@ -83,4 +116,22 @@ class Index extends Controller
         $res = $model->getNewsList($where);
         return $this->result($res,1,'请求成功','json');
     }
+
+
+    //首页获取用户需求
+    public function fetchRequest(){
+        $data = request()->post();
+        $insertArr = [];
+        $insertArr['username'] = $data['username'];
+        $insertArr['username'] = $data['email'];
+        $insertArr['username'] = $data['phone'];
+        $insertArr['work_permit'] = $data['work_permit'];
+        $insertArr['address'] = $data['address'];
+        $insertArr['content'] = $data['content'];
+        $model = new Consult();
+        $model->insert($insertArr);
+        return $this->result('需求已收到',1,'请求成功','json');
+    }
+
+
 }
