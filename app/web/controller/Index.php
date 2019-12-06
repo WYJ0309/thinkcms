@@ -45,12 +45,15 @@ class Index extends Controller
 
     //栏目页
     public function column(){
-        $data = request()->port();
+        $data = request()->post();
         if(empty($data['alias_name'])){
             return $this->error('参数不能为空');
         }
+        $is_en = empty($data['is_zh'])?1:$data['is_zh'];
+        //是否英文 1中文 2英文
         $model = new Column();
-        $res = $model->getLine($data['alias_name']);
+        $where = ['alias_name'=>$data['alias_name'],'is_en'=>$is_en];
+        $res = $model->getLine($where);
         return $this->result($res,1,'请求成功','json');
     }
 

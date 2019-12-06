@@ -9,41 +9,28 @@
         <div class="success"></div>
         <div>
             <label>
+                <span>是否英文：</span>
+                <span>
+                    <input type="radio" style="-webkit-appearance:checkbox" name="is_en" value="1" {if $column.is_en == 1}checked{/if} >中文
+                    <input type="radio" style="-webkit-appearance:checkbox" name="is_en" value="2" {if $column.is_en == 2}checked{/if} >英文
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>别名：</span>
+                <span>
+                    <input type="radio" style="-webkit-appearance:checkbox" name="alias_name" value="company" {if $column.alias_name == 'company'}checked{/if} >公司信息
+                    <input type="radio" style="-webkit-appearance:checkbox" name="alias_name" value="contact_us" {if $column.alias_name == 'contact_us'}checked{/if} >联系我们
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
                 <span>名称：</span>
                 <span><input type="text" name="name" value="{$column.name}"></span>
             </label>
         </div>
-        <div>
-            <label>
-                <span>url访问名：</span>
-                <span>
-                    <input type="text" name="url" value="{$column.url}">
-                    <br>
-                    <tt style="display: block">重要，url访问名如填写"model" 则生成访问链接http://xxx.com/col/model</tt>
-                </span>
-            </label>
-        </div>
-        <div>
-            <label>
-                <span>允许访问：</span>
-
-                <span>
-                    {if isset($column.is_vist)}
-                     <input type="checkbox" name="is_vist" value="1" {if $column.is_vist}checked{/if} >是
-                    {else}
-                     <input type="checkbox" name="is_vist" value="1" checked> 是
-                    {/if}
-                </span>
-
-            </label>
-        </div>
-        <div>
-            <label>
-                <span>排序：</span>
-                <span><input type="text" name="sort" value="{if $column.sort}{$column.sort}{else}50{/if}"></span>
-            </label>
-        </div>
-
         <div>
             <label>
                 <span>正文：</span>
