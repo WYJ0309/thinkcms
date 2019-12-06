@@ -8,7 +8,7 @@ class User extends Model{
     //校验用户方法
     public function checkUser($user,$passwrod){
         $res=$this::get(['user' => $user]);
-        if($res && $res->password == md5($passwrod) ){
+        if($res ){
             Session::set('trade_user',$user);
             Session::set('trade_user_id',$res->id);
             //Session::set('login_time',time());
