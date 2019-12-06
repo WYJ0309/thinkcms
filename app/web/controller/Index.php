@@ -125,8 +125,8 @@ class Index extends Controller
         $data = request()->post();
         $insertArr = [];
         $insertArr['username'] = $data['username'];
-        $insertArr['username'] = $data['email'];
-        $insertArr['username'] = $data['phone'];
+        $insertArr['email'] = $data['email'];
+        $insertArr['phone'] = $data['phone'];
         $insertArr['work_permit'] = $data['work_permit'];
         $insertArr['address'] = $data['address'];
         $insertArr['content'] = $data['content'];
