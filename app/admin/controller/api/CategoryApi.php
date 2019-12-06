@@ -13,7 +13,7 @@ class CategoryApi extends Controller
         $this->access();
         $data = [
             'name'=>$name,
-            'is_zh'=>$is_zh,
+            'is_zh'=>$is_zh,//是否英文 0中文 1英文
             'sort'=>$sort,
             'parent_id'=>$parent_id
         ];

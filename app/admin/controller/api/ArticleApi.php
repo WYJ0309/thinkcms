@@ -19,7 +19,7 @@ class ArticleApi extends Controller
         $article_id=$request->param('article_id');
         $data=$request->param();
         unset($data['article_id']);
-
+        $data['is_en'] = empty($data['is_en'])?1:2;//是否英文 1中文 2英文
         //上传图片
         $file=$request->file('thumb');
         if($file){

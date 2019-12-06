@@ -22,7 +22,7 @@ class Services extends Controller
     {
         //获取分类树
         $category=new Category;
-        $tree=$category->getTree(['type'=>2]);
+        $tree=$category->getTree(['type'=>2]);//1文章分类 2服务分类
 
         $search_value=false;    //记录搜索文本或类型
         //是否有搜索参数
@@ -47,7 +47,7 @@ class Services extends Controller
     //添加或编辑文章
     public function edit(){
         $category=new Category;
-        $tree=$category->getTree(['type'=>2]);
+        $tree=$category->getTree(['type'=>2]);//1文章分类 2服务分类
         $this->assign('tree',$tree);
         $article=false;
         if(Cookie::get('article_id')){
