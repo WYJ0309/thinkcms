@@ -37,7 +37,7 @@ var config={
     admin_cateEdit_router:admin_router+'category/edit',
     admin_articleEdit_router:admin_router+'article/edit',
     admin_cateTwoEdit_router:admin_router+'catetwo/edit',
-    admin_serviceEdit_router:admin_router+'services/edit',
+    admin_serviceEdit_router:admin_router+'service/edit',
     admin_linkEdit_router:admin_router+'links/edit',
     admin_linkTypeEdit_router:admin_router+'links/edit_type',
     admin_sliderEdit_router:admin_router+'slider/edit',

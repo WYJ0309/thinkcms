@@ -19,9 +19,6 @@ class ServiceApi extends Controller
         $article_id=$request->param('article_id');
         $data=$request->param();
         unset($data['article_id']);
-        if(empty($data['pid'])){
-            $this->error('分类id不能为空');
-        }
         //上传图片
         $file=$request->file('thumb');
         if($file){

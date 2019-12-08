@@ -84,7 +84,7 @@ return [
         'delete_category'=>[ 'admin/api.CategoryApi/delete' ,[ 'method'=>'post']] ,
         //内容
         'edit_article'=>[ 'admin/api.ArticleApi/edit' ,[ 'method'=>'post'] ] ,
-        'delte_article'=>[ 'admin/api.ArticleApi/delete' ,[ 'method'=>'post'] ] ,
+        'delete_article'=>[ 'admin/api.ArticleApi/delete' ,[ 'method'=>'post'] ] ,
         //分类
         'edit_catetwo'=>[ 'admin/api.CatetwoApi/edit' ,[ 'method'=>'post'] ] ,
         'delete_catetwo'=>[ 'admin/api.CatetwoApi/delete' ,[ 'method'=>'post']] ,
@@ -93,10 +93,10 @@ return [
         'edit_site'=>[ 'admin/api.SitesApi/edit' ,[ 'method'=>'post']] ,
         //内容
         'edit_service'=>[ 'admin/api.ServiceApi/edit' ,[ 'method'=>'post'] ] ,
-        'delte_service'=>[ 'admin/api.ServiceApi/delete' ,[ 'method'=>'post'] ] ,
+        'delete_service'=>[ 'admin/api.ServiceApi/delete' ,[ 'method'=>'post'] ] ,
         //链接
         'edit_link'=>[ 'admin/api.LinksApi/edit' ,[ 'method'=>'post'] ] ,
-        'delte_link'=>[ 'admin/api.LinksApi/delete' ,[ 'method'=>'post'] ] ,
+        'delete_link'=>[ 'admin/api.LinksApi/delete' ,[ 'method'=>'post'] ] ,
         'edit_link_type'=>[ 'admin/api.LinksApi/edit_type' ,[ 'method'=>'post'] ] ,
         'delete_link_type'=>[ 'admin/api.LinksApi/delete_link_type' ,[ 'method'=>'post'] ] ,
         //轮播图
