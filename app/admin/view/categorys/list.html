@@ -25,7 +25,10 @@
                 {if isset($it.child)} <i class="iconfont">&#xe6d2;</i> {else}<i class="iconfont"></i> {/if}
                 {$it.name}
             </td>
-            <td>{if $it.is_zh}是{else}否{/if}</td>
+            <td>
+                {if $it.is_zh == 1}中文{/if}
+                {if $it.is_zh == 2}英文{/if}
+            </td>
             <td>{$it.sort}</td>
             <td>
                 <a href="javascript:;" data-edit_id="{$it.pid}">编辑</a>
