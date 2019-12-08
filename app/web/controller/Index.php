@@ -16,11 +16,12 @@ class Index extends Controller
     //首页-轮播图
     public function get_slides()
     {
+        $host = 'http://'.$_SERVER['HTTP_HOST'];
         $model = new Slider();
         $res = $model->getSlider();
         $imgArr = [];
         foreach($res as $val){
-            $imgArr[] = $val['img'];
+            $imgArr[] = $host.$val['img'];
         }
         return $this->result($imgArr,1,'请求成功','json');
     }
@@ -90,6 +91,11 @@ class Index extends Controller
         $model = new Article();
         //是否英文 0中文 1英文
         $res = $model->getNewsList($where);
+        $host = 'http://'.$_SERVER['HTTP_HOST'];
+        $res = $res->toArray();
+        foreach($res['data'] as &$value){
+            $value['thumb'] = $host.$value['thumb'];
+        }
         return $this->result($res,1,'请求成功','json');
     }
 
@@ -121,6 +127,11 @@ class Index extends Controller
         $model = new Article();
         //是否英文 0中文 1英文
         $res = $model->getNewsList($where);
+        $host = 'http://'.$_SERVER['HTTP_HOST'];
+        $res = $res->toArray();
+        foreach($res['data'] as &$value){
+            $value['thumb'] = $host.$value['thumb'];
+        }
         return $this->result($res,1,'请求成功','json');
     }
 
