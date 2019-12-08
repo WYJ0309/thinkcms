@@ -155,7 +155,7 @@ class Index extends Controller
 
     //首页获取用户需求
     public function fetchRequest(){
-        $data = request()->post();
+        $data = array_merge(request()->get(),request()->post());
         $insertArr = [];
         $insertArr['username'] = $data['username'];
         $insertArr['email'] = $data['email'];
