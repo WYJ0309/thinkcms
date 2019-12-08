@@ -64,7 +64,6 @@ class Index extends Controller
     public function newsCate(){
         $data = request()->post();
         $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
-        $is_zh = ($is_zh == 1)?0:1;
         $model = new Category();
         //是否英文 0中文 1英文
         $res = $model->getTree([['type'=>1,'is_zh'=>$is_zh]]);
@@ -74,7 +73,6 @@ class Index extends Controller
     public function newsList(){
         $data = request()->post();
         $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
-        $is_zh = ($is_zh == 1)?0:1;
         $is_index = empty($data['is_index'])?0:1;//是否首页推荐
         $where = [];
         if(!empty($is_index)){
@@ -103,7 +101,6 @@ class Index extends Controller
     public function serviceCate(){
         $data = request()->post();
         $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
-        $is_zh = ($is_zh == 1)?0:1;
         $model = new Category();
         //是否英文 0中文 1英文
         $res = $model->getTree([['type'=>2,'is_zh'=>$is_zh]]);
@@ -113,7 +110,6 @@ class Index extends Controller
     public function serviceList(){
         $data = request()->post();
         $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
-        $is_zh = ($is_zh == 1)?0:1;
         $is_index = empty($data['is_index'])?0:1;//是否首页推荐
         $where = [];
         if(!empty($is_index)){
