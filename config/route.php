@@ -31,6 +31,12 @@ return [
         'column/edit'=> 'admin/columns/edit',
         'column'=> 'admin/columns/index',
 
+        //地区列表
+        'area/edit'=> 'admin/area/edit',
+        'arealist'=> 'admin/area/index',
+        //工作签证列表
+        'workpermit/edit'=> 'admin/workpermit/edit',
+        'workpermit'=> 'admin/workpermit/index',
         //轮播图
         'slider/edit'=> 'admin/sliders/edit',
         'slider'=> 'admin/sliders/index',
@@ -99,6 +105,11 @@ return [
         //栏目
         'edit_column'=>[ 'admin/api.ColumnApi/edit' ,[ 'method'=>'post'] ] ,
         'delete_column'=>[ 'admin/api.ColumnApi/delete' ,[ 'method'=>'post'] ] ,
+
+        'edit_area'=>[ 'admin/api.AreaApi/edit' ,[ 'method'=>'post'] ] ,
+        'delete_area'=>[ 'admin/api.AreaApi/delete' ,[ 'method'=>'post'] ] ,
+        'edit_workpermit'=>[ 'admin/api.WorkpermitApi/edit' ,[ 'method'=>'post'] ] ,
+        'delete_workpermit'=>[ 'admin/api.WorkpermitApi/delete' ,[ 'method'=>'post'] ] ,
         //用户咨询日志
         'consult'=>[ 'admin/api.ConsultApi/index' ,[ 'method'=>'post'] ] ,
     ]

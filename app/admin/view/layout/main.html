@@ -47,6 +47,9 @@
                 <li><a href="{:url(ADMIN_ROUTE.'service')}" {if $Request.controller eq 'Service'} class="active" {/if}>服务列表</a></li>
             </ul>
         </dd>
+        <dt><i class="iconfont">&#xe6d2;</i></dt>
+        <dt {if $Request.controller eq 'Columns'} class="active" {/if}><a href="{:url(ADMIN_ROUTE.'arealist')}"><i class="iconfont">&#xe62c;</i>地区选择</a></dt>
+        <dt {if $Request.controller eq 'Columns'} class="active" {/if}><a href="{:url(ADMIN_ROUTE.'workpermit')}"><i class="iconfont">&#xe62c;</i>工作签证</a></dt>
         <dt {if $Request.controller eq 'Columns'} class="active" {/if}><a href="{:url(ADMIN_ROUTE.'column')}"><i class="iconfont">&#xe62c;</i>栏目</a></dt>
         <dt><i class="iconfont">&#xe6d2;</i>系统</dt>
         <dd>

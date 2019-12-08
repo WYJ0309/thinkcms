@@ -1,0 +1,37 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+
+<div class="title">{if $area_id}修改地区{else}添加地区{/if}</div>
+<div class="form article_form">
+    <form id="area" method="post" action="/api/edit_area">
+        <div class="error"></div>
+        <div class="success"></div>
+        <div>
+            <label>
+                <span>中文名称：</span>
+                <span><input type="text" name="name_zh" value="{$area.name_zh}"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>英文名称：</span>
+                <span><input type="text" name="name_en" value="{$area.name_en}"></span>
+            </label>
+        </div>
+        <input type="hidden" name="id" value="{$area_id}">
+        <div>
+            <label for="#">
+                <span></span>
+                <span><input type="submit" id="submit" value="保存"></span>
+            </label>
+        </div>
+    </form>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/area_edit.js"></script>
+{/block}

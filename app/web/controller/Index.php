@@ -1,11 +1,13 @@
 <?php
 namespace app\web\controller;
+use app\admin\model\Area;
 use app\admin\model\Article;
 use app\admin\model\Category;
 use app\admin\model\Column;
 use app\admin\model\Consult;
 use app\admin\model\Site;
 use app\admin\model\Slider;
+use app\admin\model\Workpermit;
 use \think\Controller;
 
 class Index extends Controller
@@ -124,11 +126,15 @@ class Index extends Controller
 
     //首页worker-permit
     public function workerPermit(){
-
+        $model = new Workpermit();
+        $res = $model->getCol();
+        return $this->result($res,1,'请求成功','json');
     }
     //首页地区选择
     public function areaSelect(){
-
+        $model = new Area();
+        $res = $model->getCol();
+        return $this->result($res,1,'请求成功','json');
     }
 
 

@@ -1,0 +1,37 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+
+<div class="title">{if $w_id}修改签证{else}添加签证{/if}</div>
+<div class="form article_form">
+    <form id="workpermit" method="post" action="/api/edit_workpermit">
+        <div class="error"></div>
+        <div class="success"></div>
+        <div>
+            <label>
+                <span>中文名称：</span>
+                <span><input type="text" name="name_zh" value="{$permit.name_zh}"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>英文名称：</span>
+                <span><input type="text" name="name_en" value="{$permit.name_en}"></span>
+            </label>
+        </div>
+        <input type="hidden" name="id" value="{$w_id}">
+        <div>
+            <label for="#">
+                <span></span>
+                <span><input type="submit" id="submit" value="保存"></span>
+            </label>
+        </div>
+    </form>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/permit_edit.js"></script>
+{/block}
