@@ -10,7 +10,11 @@ class Category extends Model{
        if(empty($where)){
            $res = db('category')->order('sort')->select();
        }else{
-           $res = db('category')->where($where)->order('sort')->select();
+           $res = db('category');
+           foreach($where as $value){
+               $res->where($value);
+           }
+           $res = $res->order('sort')->select();
        }
        if($res){
            $tree=new \com\Tree("pid","parent_id","child");
