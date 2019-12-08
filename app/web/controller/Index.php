@@ -139,6 +139,26 @@ class Index extends Controller
         return $this->result($res,1,'请求成功','json');
     }
 
+    public function services(){
+        $data = array_merge(request()->get(),request()->post());
+        $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
+        $is_index = empty($data['is_index'])?0:1;//是否首页推荐
+        $where = [];
+        if(!empty($is_index)){
+            $where['top'] = 1;
+            $where['is_en'] = $is_zh;//是否英文 1中文 2英文
+        }else{
+            $where['is_en'] = $is_zh;//是否英文 1中文 2英文
+        }
+        $model = new Article();
+        //是否英文 0中文 1英文
+        $res = $model->getServiceList($where);
+        $host = 'http://'.$_SERVER['HTTP_HOST'];
+        foreach($res as &$value){
+            $value['thumb'] = $host.$value['thumb'];
+        }
+        return $this->result($res,1,'请求成功','json');
+    }
     //首页worker-permit
     public function workerPermit(){
         $model = new Workpermit();

@@ -38,6 +38,12 @@ class Article extends Model{
         }
         return $res;
     }
+    public function getServiceList($where){
+        //1文章分类 2服务分类  type
+        $where['type'] = 2;
+        $res = db('article')->where($where)->select();
+        return $res;
+    }
    //获取单个文章
    public function getOneArticle($id){
        $res=$this->where('id',$id)->find();

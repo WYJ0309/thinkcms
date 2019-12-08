@@ -70,6 +70,7 @@ return [
     'v1/index/newsList'=>'web/index/newsList',
     'v1/index/serviceCate'=>'web/index/serviceCate',
     'v1/index/serviceList'=>'web/index/serviceList',
+    'v1/index/services'=>'web/index/services',
     'v1/index/request'=>'web/index/fetchRequest',
 
     //api router
