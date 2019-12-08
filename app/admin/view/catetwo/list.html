@@ -44,7 +44,10 @@
                         {$sit.name}
                     </td>
                     <td></td>
-                    <td>{if $sit.is_zh}是{else}否{/if}</td>
+                    <td>
+                        {if $sit.is_zh == 1}中文{/if}
+                        {if $sit.is_zh == 2}英文{/if}
+                    </td>
                     <td>{$sit.sort}</td>
                     <td>
                         <a href="javascript:;" data-edit_id="{$sit.pid}">编辑</a>
@@ -58,7 +61,10 @@
                             <td>{$tit.pid}</td>
                             <td class="outcate three"  data-show="1"  data-type="3">{$tit.name}</td>
                             <td></td>
-                            <td>{if $tit.is_zh}是{else}否{/if}</td>
+                            <td>
+                                {if $sit.is_zh == 1}中文{/if}
+                                {if $sit.is_zh == 2}英文{/if}
+                            </td>
                             <td>{$tit.sort}</td>
                             <td>
                                 <a href="javascript:;" data-edit_id="{$tit.pid}">编辑</a>
