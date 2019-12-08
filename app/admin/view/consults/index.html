@@ -7,16 +7,24 @@
     <table>
         <tr>
             <th>编号</th>
-            <th>来源</th>
-            <th>QQ</th>
+            <th>用户名</th>
+            <th>邮箱</th>
+            <th>手机号</th>
+            <th>工作签证</th>
+            <th>地区</th>
+            <th>咨询内容</th>
             <th>咨询时间</th>
         </tr>
 
         {foreach $list as $it}
         <tr>
             <td>{$it.id}</td>
-            <td class="title">{$it.host}</td>
-            <td>{$it.qq}</td>
+            <td class="title">{$it.username}</td>
+            <td>{$it.email}</td>
+            <td>{$it.phone}</td>
+            <td>{$it.work_permit}</td>
+            <td>{$it.address}</td>
+            <td>{$it.content}</td>
             <td>{$it.time}</td>
         </tr>
         {/foreach}
