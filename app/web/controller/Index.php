@@ -119,6 +119,15 @@ class Index extends Controller
         return $this->result($res,1,'请求成功','json');
     }
 
+    //首页worker-permit
+    public function workerPermit(){
+
+    }
+    //首页地区选择
+    public function areaSelect(){
+
+    }
+
 
     //首页获取用户需求
     public function fetchRequest(){

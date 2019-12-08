@@ -55,6 +55,8 @@ return [
     'v1/index/slides'=>'web/index/get_slides',
 
     'v1/index/siteConfig'=>'web/index/site',
+    'v1/index/workPermit'=>'web/index/workerPermit',
+    'v1/index/areaSelect'=>'web/index/areaSelect',
     'v1/index/page'=>'web/index/column',
     'v1/index/view'=>'web/index/view',
     'v1/index/newsCate'=>'web/index/newsCate',
