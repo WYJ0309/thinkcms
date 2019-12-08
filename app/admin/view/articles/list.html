@@ -43,17 +43,10 @@
             <th><input type="checkbox" id="selectall"></th>
             <th>编号</th>
             <th>标题</th>
-            <th>颜色</th>
-            <th>作者</th>
-            <th>来源</th>
-            <th>录入者</th>
             <th>分类</th>
-            <th>热门</th>
             <th>置顶</th>
             <th>排序</th>
-            <th>访问次数</th>
             <th>创建时间</th>
-            <th>最后更新</th>
             <th>操作</th>
         </tr>
 
@@ -62,17 +55,10 @@
             <td class="checkbox"><input type="checkbox" name="id[]" value="{$it.id}"></td>
             <td>{$it.id}</td>
             <td class="title">{if $it.thumb}<img src="{$it.thumb}" data-img="{$it.thumb}" title="封面图" align="left" width="40">{/if} {$it.title}</td>
-            <td class="color"><b style="background: {$it.title_color}"></b></td>
-            <td>{$it.author}</td>
-            <td>{$it.fromto}</td>
-            <td>{$it.inputer}</td>
             <td>{$it.pid_name}</td>
-            <td>{if $it.hot}<i class="green">是</i>{else}否{/if}</td>
             <td>{if $it.top}<i class="green">是</i>{else}否{/if}</td>
             <td>{$it.sort}</td>
-            <td>{$it.read_count}</td>
             <td>{$it.created_time}</td>
-            <td>{$it.updated_time}</td>
             <td>
                 <a href="javascript:;" data-edit="{$it.id}" >编辑</a>
                 <a href="javascript:;" data-delete="{$it.id}">删除</a>

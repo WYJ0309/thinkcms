@@ -67,7 +67,7 @@ class Index extends Controller
         $is_zh = ($is_zh == 1)?0:1;
         $model = new Category();
         //是否英文 0中文 1英文
-        $res = $model->getTree(['type'=>1,'is_zh'=>$is_zh]);
+        $res = $model->getTree([['type'=>1,'is_zh'=>$is_zh]]);
         return $this->result($res,1,'请求成功','json');
     }
     //新闻列表
@@ -106,7 +106,7 @@ class Index extends Controller
         $is_zh = ($is_zh == 1)?0:1;
         $model = new Category();
         //是否英文 0中文 1英文
-        $res = $model->getTree(['type'=>2,'is_zh'=>$is_zh]);
+        $res = $model->getTree([['type'=>2,'is_zh'=>$is_zh]]);
         return $this->result($res,1,'请求成功','json');
     }
     //服务列表

@@ -24,12 +24,6 @@
         </div>
         <div>
             <label>
-                <span>标题颜色：</span>
-                <span><input type="text" name="title_color" value="{$article.title_color}"></span>
-            </label>
-        </div>
-        <div>
-            <label>
                 <span>摘要：</span>
                 <span>
                     <textarea name="summary">{$article.summary}</textarea>
@@ -37,39 +31,12 @@
             </label>
         </div>
 
-        <div>
-            <label>
-                <span>作者：</span>
-                <span>
-                   <input type="text" name="author" value="{$article.author}">
-                </span>
-            </label>
-        </div>
-
-        <div>
-            <label>
-                <span>来源：</span>
-                <span>
-                   <input type="text" name="fromto" value="{$article.fromto}">
-                </span>
-            </label>
-        </div>
-
-        <div>
-            <label>
-                <span>录入者：</span>
-                <span>
-                   <input type="text" name="inputer" value="{$article.inputer}">
-                </span>
-            </label>
-        </div>
 
         <div>
             <label for="#">
                 <span>属性：</span>
                 <span>
-                   <input type="checkbox" name="hot" value="1" {if $article.hot}checked{/if} /> 热门
-                   <input type="checkbox" name="top" value="1" {if $article.top}checked{/if} /> 置顶
+                   <input type="checkbox" name="top" value="1" {if $article.top}checked{/if} /> 首页展示
                 </span>
             </label>
         </div>
@@ -143,14 +110,6 @@
             </label>
         </div>
 
-        <div>
-            <label>
-                <span>阅读次数：</span>
-                <span>
-                   <input type="text" name="read_count" value="{$article.read_count}">
-                </span>
-            </label>
-        </div>
 
         <div>
             <label>
@@ -161,15 +120,6 @@
             </label>
         </div>
 
-
-        <div>
-            <label>
-                <span>最后更新：</span>
-                <span>
-                   <input type="text" name="updated_time" value="{$article.updated_time}" class="laydate-icon" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
-                </span>
-            </label>
-        </div>
 
 
         <input type="hidden" name="article_id" value="{$Think.cookie.article_id}">

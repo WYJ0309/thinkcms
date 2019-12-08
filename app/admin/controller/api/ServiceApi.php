@@ -19,6 +19,9 @@ class ServiceApi extends Controller
         $article_id=$request->param('article_id');
         $data=$request->param();
         unset($data['article_id']);
+        if(empty($data['pid'])){
+            $this->error('分类id不能为空');
+        }
         //上传图片
         $file=$request->file('thumb');
         if($file){
@@ -43,10 +46,9 @@ class ServiceApi extends Controller
             }
             //更新
             if(!$request->param('top')){ $data['top']=0; }
-            if(!$request->param('hot')){ $data['hot']=0; }
             db('article')->where('id',$article_id)->update($data);
             Cookie::set('upload_article','1');
-            $this->redirect(ADMIN_ROUTE.'service/edit');
+            $this->redirect(ADMIN_ROUTE.'service');
         }else{
             //修正时间
             if(empty($request->param('created_time')) || isDateTime($request->param('created_time')) ){
@@ -62,7 +64,7 @@ class ServiceApi extends Controller
             }else{
                 Cookie::set('upload_article','0');
             }
-            $this->redirect(ADMIN_ROUTE.'service/edit');
+            $this->redirect(ADMIN_ROUTE.'service');
         }
     }
 

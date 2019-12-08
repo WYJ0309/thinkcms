@@ -19,12 +19,12 @@ class Catetwo extends Controller
     public function listing()
     {
 
-        $list=$this->model()->getTree(['type'=>2]);//1文章分类 2服务分类
+        $list=$this->model()->getTree([['type'=>2]]);//1文章分类 2服务分类
         $this->assign('list',$list);
         return $this->fetch('list');
     }
     public function edit(){
-        $list=$this->model()->getTree(['type'=>2]);//1文章分类 2服务分类
+        $list=$this->model()->getTree([['type'=>2]]);//1文章分类 2服务分类
         $this->assign('list',$list);
         $cate=false;
         if(Cookie::get('category_id')){
