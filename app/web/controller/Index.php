@@ -48,7 +48,8 @@ class Index extends Controller
 
     //栏目页
     public function column(){
-        $data = request()->post();
+        $data['alias_name'] = request()->post('alias_name');
+        $data['is_zh'] = request()->post('is_zh');
         if(empty($data['alias_name'])){
             return $this->error('参数不能为空');
         }
@@ -62,7 +63,7 @@ class Index extends Controller
 
     //新闻分类列表
     public function newsCate(){
-        $data = request()->post();
+        $data['is_zh'] = request()->post('is_zh');
         $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
         $model = new Category();
         //是否英文 0中文 1英文
@@ -71,7 +72,10 @@ class Index extends Controller
     }
     //新闻列表
     public function newsList(){
-        $data = request()->post();
+        $data = [];
+        $data['is_zh'] = request()->post('is_zh');
+        $data['is_index'] = request()->post('is_index');
+        $data['cate_id'] = request()->post('cate_id');
         $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
         $is_index = empty($data['is_index'])?0:1;//是否首页推荐
         if(empty($data['cate_id'])){
