@@ -21,7 +21,7 @@
             btn: ['确认','取消'] //按钮
         }, function(index) {
             layer.close(index);
-            $.post('/api/delte_article',{id:id}).then(function(response){
+            $.post('/api/delete_article',{id:id}).then(function(response){
                 if(response.success){
                     location.reload();
                 }
@@ -60,7 +60,7 @@
             btn: ['确认','取消'] //按钮
         }, function(index) {
             layer.close(index);
-            $.post('/api/delte_article',{id:arr}).then(function(response){
+            $.post('/api/delete_article',{id:arr}).then(function(response){
                 if(response.success){
                     layer.msg(response.msg, {icon: 1});
                     setTimeout(function () {
