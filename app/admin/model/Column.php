@@ -11,8 +11,8 @@ class Column extends Model{
         return $this->order('id desc')->select();
     }
     //根据单页面别名获取
-    public function getLine($alias_name){
-        return $this->where('alias_name',$alias_name)->find();
+    public function getLine($where){
+        return $this->where($where)->find();
     }
 
 }

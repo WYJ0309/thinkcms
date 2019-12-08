@@ -12,10 +12,11 @@
     <table>
         <tr>
             <th>ID</th>
+            <th>中英文</th>
+            <th>别名</th>
             <th>名称</th>
-            <th>url访问名</th>
-            <th>允许访问</th>
-            <th>排序</th>
+            <th>关键字</th>
+            <th>描述</th>
             <th>操作</th>
         </tr>
 
@@ -23,10 +24,11 @@
         {foreach $list as $it}
         <tr>
             <td>{$it.id}</td>
+            <td>{if $it.is_en == 1}中文{else}<i class="red">英文</i>{/if}</td>
+            <td>{$it.alias_name}</td>
             <td>{$it.name}</td>
-            <td>{$it.url}</td>
-            <td>{if $it.is_vist}是{else}<i class="red">否</i>{/if}</td>
-            <td>{$it.sort}</td>
+            <td>{$it.keyword}</td>
+            <td>{$it.ds}</td>
             <td>
                 <a href="javascript:;" data-edit="{$it.id}">编辑</a>
                 <a href="javascript:;" data-delete="{$it.id}">删除</a>

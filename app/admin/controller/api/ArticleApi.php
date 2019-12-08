@@ -19,7 +19,6 @@ class ArticleApi extends Controller
         $article_id=$request->param('article_id');
         $data=$request->param();
         unset($data['article_id']);
-
         //上传图片
         $file=$request->file('thumb');
         if($file){

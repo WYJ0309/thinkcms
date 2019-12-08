@@ -22,6 +22,7 @@ return [
         'service/edit'=> 'admin/services/edit',
         'service'=> 'admin/services/listing',
         'site'=> 'admin/sites/index',
+        'sites/edit'=> 'admin/sites/edit',
         'links/edit'=> 'admin/links/edit',
         'links/type'=> 'admin/links/type',
         'links/edit_type'=> 'admin/links/edit_type',
@@ -81,6 +82,9 @@ return [
         //分类
         'edit_catetwo'=>[ 'admin/api.CatetwoApi/edit' ,[ 'method'=>'post'] ] ,
         'delete_catetwo'=>[ 'admin/api.CatetwoApi/delete' ,[ 'method'=>'post']] ,
+
+
+        'edit_site'=>[ 'admin/api.SiteApi/edit' ,[ 'method'=>'post']] ,
         //内容
         'edit_service'=>[ 'admin/api.ServiceApi/edit' ,[ 'method'=>'post'] ] ,
         'delte_service'=>[ 'admin/api.ServiceApi/delete' ,[ 'method'=>'post'] ] ,

@@ -18,9 +18,15 @@ class Sites extends Controller
     }
 
     //主页
-    public function index(Request $request){
+    public function index(){
+        $list=$this->model()->getList();
+        $this->assign('list',$list);
+        return $this->fetch();
+    }
+
+    public function edit(Request $request){
         $query=$request->param();
-        if($query){
+        if($request->isPost()){
             if($this->model()->savaData($query)){
                 Cookie::set('site_save','1');
             }else{
@@ -28,7 +34,8 @@ class Sites extends Controller
             }
             $this->redirect(ADMIN_ROUTE.'site');
         }
-        $this->assign('site',$this->model()->getSite());
+        $where = $query['site_id']==1?'':2;
+        $this->assign('site',$this->model()->getSite($where));
         return $this->fetch();
     }
 

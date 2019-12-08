@@ -23,13 +23,11 @@ class ColumnApi extends Controller
         //判断是否有id
         if($column_id){
             //更新
-            if(!$request->param('is_vist')){ $data['is_vist']=0; }
             db('column')->where('id',$column_id)->update($data);
             Cookie::set('add_column','1');
             $this->redirect(ADMIN_ROUTE.'column/edit');
         }else{
             //添加
-            if(!$request->param('is_vist')){ $data['is_vist']=0; }
             $res=db('column')->insert($data);
             if($res){
                 Cookie::set('add_column','1');

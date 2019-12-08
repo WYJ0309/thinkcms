@@ -10,7 +10,10 @@
         <div>
             <label>
                 <span>是否英文：</span>
-                <span><input type="checkbox" name="is_en" value="1" {if $article.is_en}checked{/if} >是</span>
+                <span>
+                    <input type="radio" style="-webkit-appearance:checkbox" name="is_en" value="1" {if $article.is_en == 1}checked{/if} >中文
+                    <input type="radio" style="-webkit-appearance:checkbox" name="is_en" value="2" {if $article.is_en == 2}checked{/if} >英文
+                </span>
             </label>
         </div>
         <div>
