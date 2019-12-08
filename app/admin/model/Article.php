@@ -25,7 +25,17 @@ class Article extends Model{
     }
     public function getNewsList($where){
         //1文章分类 2服务分类  type
-        $res = db('article')->where($where)->order('id desc')->paginate();
+        $is_exist = db('category')->where(['parent_id'=>$where['pid']])->select();
+        if(empty($is_exist)){
+            $res = db('article')->where($where)->order('id desc')->paginate();
+        }else{
+            $idArr = [];
+            foreach($is_exist as $val){
+                $idArr[] = $val['pid'];
+            }
+            $where['pid'] = ['in',implode(',',$idArr)];
+            $res = db('article')->where($where)->order('id desc')->paginate();
+        }
         return $res;
     }
    //获取单个文章
