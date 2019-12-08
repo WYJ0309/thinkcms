@@ -90,7 +90,7 @@ return [
         'delete_catetwo'=>[ 'admin/api.CatetwoApi/delete' ,[ 'method'=>'post']] ,
 
 
-        'edit_site'=>[ 'admin/api.SiteApi/edit' ,[ 'method'=>'post']] ,
+        'edit_site'=>[ 'admin/api.SitesApi/edit' ,[ 'method'=>'post']] ,
         //内容
         'edit_service'=>[ 'admin/api.ServiceApi/edit' ,[ 'method'=>'post'] ] ,
         'delte_service'=>[ 'admin/api.ServiceApi/delete' ,[ 'method'=>'post'] ] ,

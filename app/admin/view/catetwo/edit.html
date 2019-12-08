@@ -13,12 +13,13 @@
                 <span><input type="text" name="name" value="{$cate.name}"></span>
             </label>
         </div>
-        <div>
-            <label>
-                <span>是否英文：</span>
-                <span><input type="checkbox" name="is_zh" value="1" {if $cate.is_zh}checked{/if} >是</span>
-            </label>
-        </div>
+        <label>
+            <span>是否英文：</span>
+            <span>
+                    <input type="radio" style="-webkit-appearance:checkbox" name="is_zh" value="1" {if $cate.is_zh == 1}checked{/if} >中文
+                    <input type="radio" style="-webkit-appearance:checkbox" name="is_zh" value="2" {if $cate.is_zh == 2}checked{/if} >英文
+                </span>
+        </label>
         <div>
             <label>
                 <span>排序：</span>
