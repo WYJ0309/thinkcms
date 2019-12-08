@@ -63,7 +63,7 @@ class Index extends Controller
 
     //新闻分类列表
     public function newsCate(){
-        $data['is_zh'] = request()->post('is_zh');
+        $data = array_merge(request()->get(),request()->post());
         $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
         $model = new Category();
         //是否英文 0中文 1英文
@@ -72,10 +72,7 @@ class Index extends Controller
     }
     //新闻列表
     public function newsList(){
-        $data = [];
-        $data['is_zh'] = request()->post('is_zh');
-        $data['is_index'] = request()->post('is_index');
-        $data['cate_id'] = request()->post('cate_id');
+        $data = array_merge(request()->get(),request()->post());
         $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
         $is_index = empty($data['is_index'])?0:1;//是否首页推荐
         if(empty($data['cate_id'])){
@@ -85,12 +82,13 @@ class Index extends Controller
         if(!empty($is_index)){
             $where['top'] = 1;
             $where['type'] = 1;//1文章分类 2服务分类
-            $where['is_en'] = empty($is_zh)?1:2;//是否英文 1中文 2英文
+            $where['is_en'] = $is_zh;//是否英文 1中文 2英文
+            $where['pid'] = $data['cate_id'];
         }else{
             $where['type'] = 1;//1文章分类 2服务分类
-            $where['is_en'] = empty($is_zh)?1:2;//是否英文 1中文 2英文
+            $where['is_en'] = $is_zh;//是否英文 1中文 2英文
+            $where['pid'] = $data['cate_id'];
         }
-        $where['pid'] = $data['cate_id'];
         $model = new Article();
         //是否英文 0中文 1英文
         $res = $model->getNewsList($where);
@@ -104,7 +102,7 @@ class Index extends Controller
 
     //服务分类列表
     public function serviceCate(){
-        $data = request()->post();
+        $data = array_merge(request()->get(),request()->post());
         $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
         $model = new Category();
         //是否英文 0中文 1英文
@@ -113,7 +111,7 @@ class Index extends Controller
     }
     //服务列表
     public function serviceList(){
-        $data = request()->post();
+        $data = array_merge(request()->get(),request()->post());
         $is_zh = empty($data['is_zh'])?1:$data['is_zh'];//1中文 2英文
         $is_index = empty($data['is_index'])?0:1;//是否首页推荐
         if(empty($data['cate_id'])){
@@ -123,12 +121,13 @@ class Index extends Controller
         if(!empty($is_index)){
             $where['top'] = 1;
             $where['type'] = 2;//1文章分类 2服务分类
-            $where['is_en'] = empty($is_zh)?1:2;//是否英文 1中文 2英文
+            $where['is_en'] = $is_zh;//是否英文 1中文 2英文
+            $where['pid'] = $data['cate_id'];
         }else{
             $where['type'] = 2;//1文章分类 2服务分类
-            $where['is_en'] = 1;//是否英文 1中文 2英文
+            $where['is_en'] = $is_zh;//是否英文 1中文 2英文
+            $where['pid'] = $data['cate_id'];
         }
-        $where['pid'] = $data['cate_id'];
         $model = new Article();
         //是否英文 0中文 1英文
         $res = $model->getNewsList($where);
