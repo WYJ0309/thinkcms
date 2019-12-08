@@ -1,3 +1,4 @@
 # 忽略 .idea文件 和 .idea目录
 .idea
 config/database.php
+runtime
