@@ -58,7 +58,7 @@ return [
     //下载 router
     'down'=>'web/webs/down',
     //主页 router
-    ''=>'web/webs/index',
+    ''=>'admin/login/index',
     'v1/index/slides'=>'web/index/get_slides',
 
     'v1/index/siteConfig'=>'web/index/site',

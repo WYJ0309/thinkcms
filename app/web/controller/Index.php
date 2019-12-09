@@ -16,7 +16,8 @@ class Index extends Controller
     //首页-轮播图
     public function get_slides()
     {
-        $host = 'http://'.$_SERVER['HTTP_HOST'];
+        //$host = 'http://'.$_SERVER['HTTP_HOST'];
+        $host = 'http://xinoservice.com';
         $model = new Slider();
         $res = $model->getSlider();
         $imgArr = [];
@@ -92,7 +93,8 @@ class Index extends Controller
         $model = new Article();
         //是否英文 0中文 1英文
         $res = $model->getNewsList($where);
-        $host = 'http://'.$_SERVER['HTTP_HOST'];
+        //$host = 'http://'.$_SERVER['HTTP_HOST'];
+        $host = 'http://xinoservice.com';
         $res = $res->toArray();
         foreach($res['data'] as &$value){
             $value['thumb'] = $host.$value['thumb'];
@@ -131,7 +133,8 @@ class Index extends Controller
         $model = new Article();
         //是否英文 0中文 1英文
         $res = $model->getNewsList($where);
-        $host = 'http://'.$_SERVER['HTTP_HOST'];
+       // $host = 'http://'.$_SERVER['HTTP_HOST'];
+        $host = 'http://xinoservice.com';
         $res = $res->toArray();
         foreach($res['data'] as &$value){
             $value['thumb'] = $host.$value['thumb'];
@@ -153,7 +156,8 @@ class Index extends Controller
         $model = new Article();
         //是否英文 0中文 1英文
         $res = $model->getServiceList($where);
-        $host = 'http://'.$_SERVER['HTTP_HOST'];
+        //$host = 'http://'.$_SERVER['HTTP_HOST'];
+        $host = 'http://xinoservice.com';
         foreach($res as &$value){
             $value['thumb'] = $host.$value['thumb'];
         }
