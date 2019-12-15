@@ -23,5 +23,16 @@ class ConsultApi extends Controller
         $address='客户位置:'.$ip->address;
         sendMail(['6325610@qq.com'=>'可是','381508990@qq.com'=>'刘皮'],'兴蜀大宗sypme',$address);
     }
+    //删除文章
+    public function delete(Request $request){
+        $id=$request->param('id');
+        $id=explode(",",$id);
+        if($id){
+            if(db('consult')->delete($id)){
+                return ['success'=>true,'msg'=>'删除成功'];
+            }
+            return ['fail'=>true,'msg'=>'删除失败'];
+        }
+    }
 
 }

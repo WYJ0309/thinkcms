@@ -113,5 +113,6 @@ return [
         'delete_workpermit'=>[ 'admin/api.WorkpermitApi/delete' ,[ 'method'=>'post'] ] ,
         //用户咨询日志
         'consult'=>[ 'admin/api.ConsultApi/index' ,[ 'method'=>'post'] ] ,
+        'delete_consult'=>[ 'admin/api.ConsultApi/delete' ,[ 'method'=>'post'] ] ,
     ]
 ];

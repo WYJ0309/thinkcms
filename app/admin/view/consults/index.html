@@ -2,10 +2,13 @@
 
 {block name='main'}
 <div class="title">客户咨询日志</div>
-
+<div class="handle">
+    <a href="#" title="批量删除" class="disabled" id="delete_select"><i class="iconfont">&#xe609;</i></a>
+</div>
 <div class="table">
     <table>
         <tr>
+            <th><input type="checkbox" id="selectall"></th>
             <th>编号</th>
             <th>用户名</th>
             <th>邮箱</th>
@@ -14,10 +17,12 @@
             <th>地区</th>
             <th>咨询内容</th>
             <th>咨询时间</th>
+            <th>操作</th>
         </tr>
 
         {foreach $list as $it}
         <tr>
+            <td class="checkbox"><input type="checkbox" name="id[]" value="{$it.id}"></td>
             <td>{$it.id}</td>
             <td class="title">{$it.username}</td>
             <td>{$it.email}</td>
@@ -26,6 +31,9 @@
             <td>{$it.address}</td>
             <td>{$it.content}</td>
             <td>{$it.time}</td>
+            <td>
+                <a href="javascript:;" data-delete="{$it.id}">删除</a>
+            </td>
         </tr>
         {/foreach}
     </table>
@@ -38,3 +46,6 @@
 
 {/block}
 
+{block name='javascript'}
+<script src="/asset/js/consult.js"></script>
+{/block}
