@@ -49,8 +49,7 @@ class Index extends Controller
 
     //栏目页
     public function column(){
-        $data['alias_name'] = request()->post('alias_name');
-        $data['is_zh'] = request()->post('is_zh');
+        $data = array_merge(request()->get(),request()->post());
         if(empty($data['alias_name'])){
             return $this->error('参数不能为空');
         }
