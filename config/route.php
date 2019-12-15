@@ -114,5 +114,6 @@ return [
         //用户咨询日志
         'consult'=>[ 'admin/api.ConsultApi/index' ,[ 'method'=>'post'] ] ,
         'delete_consult'=>[ 'admin/api.ConsultApi/delete' ,[ 'method'=>'post'] ] ,
+        'consult_exportExcel'=>[ 'admin/api.ConsultApi/exportExcel' ,[ 'method'=>'get'] ] ,
     ]
 ];
