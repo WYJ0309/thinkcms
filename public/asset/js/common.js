@@ -42,6 +42,7 @@ var config={
     admin_linkTypeEdit_router:admin_router+'links/edit_type',
     admin_sliderEdit_router:admin_router+'slider/edit',
     admin_columnEdit_router:admin_router+'column/edit',
+    admin_consultsEdit_router:admin_router+'consult_edit',
 };
 
 (function(){

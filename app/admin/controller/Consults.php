@@ -2,6 +2,8 @@
 namespace app\admin\controller;
 use \think\Controller;
 use \app\admin\model\Consult;
+use think\Cookie;
+use think\Request;
 
 class Consults extends Controller
 {
@@ -20,6 +22,14 @@ class Consults extends Controller
 
         $this->assign('list',$list);
         return $this->fetch();
+    }
+
+    //添加或编辑文章
+    public function edit(){
+
+        $consult=$this->model()->getOne(Cookie::get('consult_id'));
+        $this->assign('consult',$consult);
+        return $this->fetch('edit');
     }
 
 }

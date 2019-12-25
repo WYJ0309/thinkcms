@@ -1,0 +1,66 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+
+<div class="title">查看</div>
+<div class="form article_form">
+    <form id="column" method="post" action="">
+        <div>
+            <label>
+                <span>用户名：</span>
+                <span><input type="text" name="name" value="{$consult.username}"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>邮箱：</span>
+                <span><input type="text" name="name" value="{$consult.email}"></span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>手机号：</span>
+                <span><input type="text" name="name" value="{$consult.phone}"></span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>工作签证：</span>
+                <span><input type="text" name="name" value="{$consult.work_permit}"></span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>地区：</span>
+                <span><input type="text" name="name" value="{$consult.address}"></span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>咨询内容：</span>
+                <span>
+                    <textarea rows="8" cols="5">{$consult.content}</textarea>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>咨询时间：</span>
+                <span><input type="text" name="name" value="{$consult.time}"></span>
+            </label>
+        </div>
+    </form>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/ueditor/ueditor.config.js"></script>
+<script src="/ueditor/ueditor.all.js"></script>
+<script src="/asset/js/column_edit.js"></script>
+{/block}

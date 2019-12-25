@@ -1,6 +1,12 @@
 (function(doc){
     var delete_select=$('#delete_select');
 
+    //编辑
+    $('[data-edit]').on('click',function(){
+        var id=$(this).data('edit');
+        setCookie('consult_id',id);
+        location.href=config.admin_consultsEdit_router;
+    })
     //单个删除
     $('[data-delete]').on('click',function(){
         var id=$(this).data('delete');

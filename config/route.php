@@ -41,6 +41,7 @@ return [
         'slider/edit'=> 'admin/sliders/edit',
         'slider'=> 'admin/sliders/index',
         'consult'=> 'admin/consults/index',
+        'consult_edit'=> 'admin/consults/edit',
 
         ''     => ['admin/index/index',  [ 'method'=>'get' ] ],
     ],
